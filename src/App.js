@@ -12,12 +12,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="parent">
+        <header><Header /></header>
+        <div className="App">
 
-<Header />
-{routes}
+        {routes}
 
-
+        </div>
       </div>
     );
   }

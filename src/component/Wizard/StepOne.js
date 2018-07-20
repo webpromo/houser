@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import { updateProp, updateAddress, updateCity, updateState,updateZip } from "./ducks/counter";
 
 
 
@@ -24,36 +25,6 @@ class Wizard extends Component {
       return(res.data)
       })
     }
-
-  updateProp(val){
-    this.setState({
-      property:val
-    })
-  }
-
-  updateAddress(val){
-    this.setState({
-      address:val
-    })
-  }
-
-  updateCity(val){
-    this.setState({
-      city:val
-    })
-  }
-
-  updateState(val){
-    this.setState({
-      state:val
-    })
-  }
-
-  updateZip(val){
-    this.setState({
-      zip:val
-    })
-  }
 
   render() {
     const { 
