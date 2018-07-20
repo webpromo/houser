@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 // import './App.css';
-// import {getStatus} from './status.js'
+
+import House from '../House/House';
 
 
 
