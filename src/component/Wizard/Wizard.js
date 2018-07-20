@@ -19,34 +19,34 @@ export default class Wizard extends Component {
     this.addHouse = this.addHouse.bind(this);
   }
 
-  addHouse(){
-    axios.put('/api/houses',
-  {
-    name:this.property,
-    address:this.address,
-    city:this.city,
-    state:this.state,
-    zip:this.zip
-  })
-    .then(res => {   
-      return(res.data)
-      })
+  // addHouse(){
+  //   axios.put('/api/houses',
+  // {
+  //   name:this.property,
+  //   address:this.address,
+  //   city:this.city,
+  //   state:this.state,
+  //   zip:this.zip
+  // })
+  //   .then(res => {   
+  //     return(res.data)
+  //     })
 
-    }
+  //   }
 
-    // addHouse(){
-    //   let promise = axios.put('/api/houses',
-    // {
-    //   name:this.property,
-    //   address:this.address,
-    //   city:this.city,
-    //   state:this.state,
-    //   zip:this.zip
-    // })
-    //   promise.then(res => {   
-    //     return(res.data)
-    //     })
-    //   }
+    addHouse(){
+      let promise = axios.put('/api/houses',
+    {
+      name:this.property,
+      address:this.address,
+      city:this.city,
+      state:this.state,
+      zip:this.zip
+    })
+      promise.then(res => {   
+        return(res.data)
+        })
+      }
   
 
     updateProp(prop){

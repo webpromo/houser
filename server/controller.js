@@ -11,7 +11,10 @@ module.exports = {
     create: ( req, res ) => {  
         const dbInstance = req.app.get('db');
       const { name, address, city,state,zip } = req.body;
-      dbInstance.add_house([name, address, city, state,zip]).then(newHouse => res.status(200).send(newHouse));
+      dbInstance.add_house([name, address, city, state,zip]).then(newHouse => res.status(200).send(newHouse))
+      .catch(err => {
+        res.status(500).send({errorMessage: "It's not you, it's us."});
+    });
     } ,
     delete: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
