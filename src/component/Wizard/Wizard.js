@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 
 
-class WIzard extends Component {
+class Wizard extends Component {
   render() {
     return (
 
@@ -21,4 +21,4 @@ class WIzard extends Component {
   }
 }
 
-export default WIzard;
+export default Wizard;
