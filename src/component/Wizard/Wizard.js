@@ -15,10 +15,34 @@ class Wizard extends Component {
       zip: 0
     }
   }
-  
+
   updateProp(val){
     this.setState({
       property:val
+    })
+  }
+
+  updateAddress(val){
+    this.setState({
+      address:val
+    })
+  }
+
+  updateCity(val){
+    this.setState({
+      city:val
+    })
+  }
+
+  updateState(val){
+    this.setState({
+      state:val
+    })
+  }
+
+  updateZip(val){
+    this.setState({
+      zip:val
     })
   }
 
