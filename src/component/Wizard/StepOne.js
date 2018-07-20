@@ -2,10 +2,21 @@ import React, { Component } from 'react';
 // import './App.css';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 
 
 class Wizard extends Component {
+  constructor(){
+    super()
+    this.state={
+      property:"",
+      address:"",
+      city:"",
+      state: "",
+      zip: 0
+    }
+  }
 
   addHouse(){
     let promise = axios.put('/api/houses')
@@ -14,16 +25,45 @@ class Wizard extends Component {
       })
     }
 
-  
+  updateProp(val){
+    this.setState({
+      property:val
+    })
+  }
+
+  updateAddress(val){
+    this.setState({
+      address:val
+    })
+  }
+
+  updateCity(val){
+    this.setState({
+      city:val
+    })
+  }
+
+  updateState(val){
+    this.setState({
+      state:val
+    })
+  }
+
+  updateZip(val){
+    this.setState({
+      zip:val
+    })
+  }
+
   render() {
-  
+    const { 
+        name, address, city, state, zip
+      } = this.props;
     return (
 
 <div id="parent"> 
 
-  <div>
-  <Link to='/dashboard'><button className="cancel">Cancel</button></Link>
-  </div>
+{console.log("Props: "+props)}
   <div className="wizard-fields">
       <input className="property-name" placeholder="Property name" type="text" onChange={(e) => this.updateProp(e.target.value)} value={this.state.property}/>
       <input className="address" placeholder="Address" type="text" onChange={(e) => this.updateAddress(e.target.value)} value={this.state.address}/>
@@ -39,4 +79,8 @@ class Wizard extends Component {
   }
 }
 
-export default Wizard;
+function mapStateToProps( state ) {
+    return state;
+  }
+  
+  export default connect( mapStateToProps, { name, address, city, state, zip } )( Wizard );

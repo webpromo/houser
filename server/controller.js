@@ -2,7 +2,7 @@ module.exports = {
     getAll: ( req, res ) => {  
         const dbInstance = req.app.get('db'); // same with each endpoint
         console.log(req.app.get);
-        dbInstance.getAll() // throwing error "Cannot read property 'getAll' of undefined"
+        dbInstance.getAll() 
         .then(houses => res.status(200).send(houses))
         .catch(err => {
             res.status(500).send({errorMessage: "It's not you, it's us."});
