@@ -35,7 +35,7 @@ class Dashboard extends Component {
   }
 
   deleteHouse(id){
-    console.log("Triggered deleteHouse")
+    console.log("Triggered deleteHouse"+id)
     let promise = axios.delete('/api/houses/?id='+id)
     promise.then(res => {   
       return(res.data)
@@ -47,6 +47,7 @@ class Dashboard extends Component {
      return (
       <div className="one-listing">
         <div className="deleteButton"><button onClick={() => {this.props.deleteHouse(this.housesList[i].id)}}>X</button></div>
+        {/* {console.log("House ID = ")+this.housesList[i].id} */}
         <span key={i} className="listing">Property name: {this.state.housesList[i].property}<br /></span>
         <span key={i} className="listing">Address: {this.state.housesList[i].address}<br /></span>
         <span key={i} className="listing">City: {this.state.housesList[i].city}<br /></span>

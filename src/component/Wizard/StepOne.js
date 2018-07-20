@@ -28,13 +28,12 @@ class Wizard extends Component {
 
   render() {
     const { 
-        name, address, city, state, zip
+        property, address, city, state, zip
       } = this.props;
     return (
 
 <div id="parent"> 
-
-{console.log("Props: "+props)}
+{console.log("name: "+property)}
   <div className="wizard-fields">
       <input className="property-name" placeholder="Property name" type="text" onChange={(e) => this.updateProp(e.target.value)} value={this.state.property}/>
       <input className="address" placeholder="Address" type="text" onChange={(e) => this.updateAddress(e.target.value)} value={this.state.address}/>
@@ -54,4 +53,4 @@ function mapStateToProps( state ) {
     return state;
   }
   
-  export default connect( mapStateToProps, { name, address, city, state, zip } )( Wizard );
+  export default connect( mapStateToProps, { props.property, address, city, state, zip } )( Wizard );
