@@ -9,7 +9,7 @@ const app = express();
 massive( process.env.CONNECTION_URI ).then( dbInstance => app.set('db', dbInstance) );
 app.use( bodyParser.json() );
 
-
+app.get( '/api/houses', controller.getAll );
 
 const port = process.env.SERVER_PORT || 3000;  // nodemon monitors this.
 app.listen( port, () => { console.log(`Server listening INTENTLY on port ${port}.`); } );

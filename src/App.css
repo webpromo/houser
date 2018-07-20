@@ -5,25 +5,29 @@ body {
   text-align: center;
   width:800px;
   background-color:#E5F4EC;
+  margin:0px auto;
 }
 
 .cancel {
   background-color:#FEC2C2;
 }
 
-.App-header {
+.parent{
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.listAll {
+ background-color: #DEDEDE;
+ width:600px;
+ padding:5px;
+ margin:12px;
 }
 
-.App-intro {
-  font-size: large;
+.one-listing {
+  tex-align:left;
 }
 
 @keyframes App-logo-spin {
