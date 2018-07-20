@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Dashboard from './component/Dashboard/Dashboard';
-import Wizard from './component/Wizard/Wizard';
+// import Dashboard from './component/Dashboard/Dashboard';
+// import Wizard from './component/Wizard/Wizard';
 import Header from './component/Header/Header';
 import routes from './routes.js';
 

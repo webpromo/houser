@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-// import './App.css';
 
+import {Link} from 'react-router-dom';
 import House from '../House/House';
 
 
@@ -13,9 +13,7 @@ class Dashboard extends Component {
 <div id="parent"> 
 
   <div>
-    <h1>
-      Dashboard
-    </h1>
+  <Link to='/wizard'><button >Add New Property</button></Link>
   </div>
 
 </div>
