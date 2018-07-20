@@ -1,7 +1,8 @@
 module.exports = {
-    read: ( req, res ) => {  
+    getAll: ( req, res ) => {  
         const dbInstance = req.app.get('db'); // same with each endpoint
-        dbInstance.getAll()
+        console.log(req.app.get);
+        dbInstance.getAll() // throwing error "Cannot read property 'getAll' of undefined"
         .then(houses => res.status(200).send(houses))
         .catch(err => {
             res.status(500).send({errorMessage: "It's not you, it's us."});
@@ -9,19 +10,17 @@ module.exports = {
     },
     create: ( req, res ) => {  
         const dbInstance = req.app.get('db');
-      const { name, price, img } = req.body;
-      dbInstance.add_product([name, price, img]).then(newProduct => res.status(200).send(newProduct));
+      const { name, address, city,state,zip } = req.body;
+      dbInstance.add_house([name, address, city, state,zip]).then(newHouse => res.status(200).send(newHouse));
     } ,
-    update: ( req, res ) => {  
+    delete: ( req, res, next ) => {
         const dbInstance = req.app.get('db');
-      const { id, name, price, img } = req.body;
-      dbInstance.update_product([id, name, price, img]).then(updatedProduct => {
-        console.log(updatedProduct)
-        res.status(200).send(updatedProduct)});
-    } ,
-    delete: ( req, res ) => {  
-        const dbInstance = req.app.get('db');
-      const { id } = req.body;
-      dbInstance.nix_product([id]).then(() => res.status(200).send("Product deleted"));
-    } 
+        const { params } = req;
+        dbInstance.nix_house([ params.id ])
+          .then( () => res.sendStatus(200) )
+          .catch( err => {
+            res.status(500).send({errorMessage: "Oops! Something went wrong. Our engineers have been informed!"});
+            console.log(err)
+          } );
+      }
 } 

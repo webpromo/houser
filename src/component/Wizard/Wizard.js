@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import './App.css';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -15,6 +16,13 @@ class Wizard extends Component {
       zip: 0
     }
   }
+
+  addHouse(){
+    let promise = axios.put('/api/houses')
+    promise.then(res => {   
+      return(res.data)
+      })
+    }
 
   updateProp(val){
     this.setState({
@@ -63,7 +71,8 @@ class Wizard extends Component {
       <input className="zip" type="text" onChange={(e) => this.updateZip(e.target.value)} value={this.state.zip}/>
 
   </div>
-
+  <Link to='/dashboard'>  <button onClick={(e) => {this.props.addHouse()}}>Complete</button></Link>
+  
 </div>
     );
   }

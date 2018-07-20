@@ -1,0 +1,1 @@
+delete from table HOUSES where id=$1

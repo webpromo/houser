@@ -30,7 +30,6 @@ body {
   tex-align:left;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.deleteButton {
+  float:right;
 }
